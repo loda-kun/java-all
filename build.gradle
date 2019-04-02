@@ -1,0 +1,67 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+}
+
+ext{
+    lombokVersion = '1.18.4'
+    guavaVersion = '27.1-jre'
+    commonLang3Version = '3.8.1'
+}
+
+allprojects {
+    group 'me.loda.java'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'checkstyle'
+
+    def defaultEncoding = 'UTF-8'
+    tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
+
+    checkstyle {
+        def configDir = new File(project.rootDir, "include")
+        configFile = new File(configDir, "loda_checkStyle.xml")
+        configProperties.configDir = configDir
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+
+subprojects {
+    compileJava.dependsOn(processResources)
+
+    dependencies {
+        // Annotation processor
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+
+
+        // utils
+        compile group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonLang3Version}"
+    }
+}
+
+project(":java-reflection-annotations"){
+    
+}
+
+gradle.buildFinished {
+    project.buildDir.deleteDir()
+    delete "src"
+}

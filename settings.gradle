@@ -1,0 +1,3 @@
+rootProject.name = 'all'
+include 'java-reflection-annotations'
+
