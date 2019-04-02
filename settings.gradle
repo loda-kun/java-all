@@ -1,3 +1,4 @@
 rootProject.name = 'all'
 include 'java-reflection-annotations'
+include 'java-security-jwt'
 
