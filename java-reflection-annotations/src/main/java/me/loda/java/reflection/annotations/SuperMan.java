@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import me.loda.java.reflection.Person;
 
-@JsonName("super_man")
+@JsonName(value = "super_man")
 public class SuperMan extends Person {
     private String name;
 

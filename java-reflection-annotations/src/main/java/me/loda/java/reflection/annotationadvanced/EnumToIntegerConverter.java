@@ -10,6 +10,7 @@ import javax.persistence.AttributeConverter;
 
 import com.google.common.reflect.TypeToken;
 
+import me.loda.java.reflection.annotationadvanced.Convertible.Parser;
 import me.loda.java.reflection.annotationadvanced.Convertible.Value;
 
 public class EnumToIntegerConverter<T extends Enum> implements AttributeConverter<T, Integer> {
@@ -45,7 +46,7 @@ public class EnumToIntegerConverter<T extends Enum> implements AttributeConverte
             throw new RuntimeException("Enum is not convertible!");
         }
         Method method = Stream.of(clazz.getDeclaredMethods())
-                             .filter(m -> m.getAnnotation(Value.class) != null)
+                             .filter(m -> m.getAnnotation(Parser.class) != null)
                              .findFirst()
                              .orElseThrow(() -> new RuntimeException("Enum is not convertible!"));
 

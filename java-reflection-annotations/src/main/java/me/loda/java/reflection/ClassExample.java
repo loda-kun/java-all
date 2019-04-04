@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 public class ClassExample {
+
     public static void main(String[] args) throws ClassNotFoundException {
         getClassInfo();
     }

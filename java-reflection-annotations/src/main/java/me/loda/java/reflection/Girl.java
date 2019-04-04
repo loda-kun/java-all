@@ -1,6 +1,11 @@
 package me.loda.java.reflection;
 
+import javax.annotation.Nullable;
+
+@SuppressWarnings("deprecation")
+@Deprecated
 public class Girl extends Person {
+
     private String name;
 
     public Girl() {
@@ -11,6 +16,7 @@ public class Girl extends Person {
         this.name = name;
     }
 
+    @Nullable
     public void setName(String name){
         this.name = name;
     }
