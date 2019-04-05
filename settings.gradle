@@ -1,4 +1,5 @@
 rootProject.name = 'all'
 include 'java-reflection-annotations'
 include 'java-security-jwt'
+include 'jpa-hibernate-one-to-one'
 

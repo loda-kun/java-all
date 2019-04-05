@@ -65,6 +65,10 @@ project(":java-reflection-annotations"){
     }
 }
 
+project(":jpa-hibernate-one-to-one"){
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
 gradle.buildFinished {
     project.buildDir.deleteDir()
     delete "src"
