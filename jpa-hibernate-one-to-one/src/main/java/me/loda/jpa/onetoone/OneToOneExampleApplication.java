@@ -33,16 +33,22 @@ public class OneToOneExampleApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // Tạo ra đối tượng person
         Person person = Person.builder()
                               .name("loda")
                               .build();
+        // Lưu vào db
         personRepository.save(person);
+
+        // Tạo ra đối tượng Address có tham chiếu tới person
         Address address = Address.builder()
                 .city("Hanoi")
                 .person(person)
                 .build();
+
+        // Lưu vào db
         addressRepository.save(address);
 
-
+        // Vào: http://localhost:8080/h2-console/ để xem dữ liệu đã insert
     }
 }

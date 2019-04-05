@@ -25,18 +25,19 @@ import lombok.Data;
  * @since 4/5/2019
  * Github: https://github.com/loda-kun
  */
-@Entity
-@Data
-@Builder
+@Entity // Đánh dấu đây là table trong db
+@Data // lombok giúp generate các hàm constructor, get, set v.v.
+@Builder // lombok giúp tạo class builder
 public class Address {
-    @Id
-    @GeneratedValue
+
+    @Id //Đánh dấu là primary key
+    @GeneratedValue // Giúp tự động tăng
     private Long id;
 
     private String city;
     private String province;
 
-    @OneToOne
-    @JoinColumn(name = "person_id")
+    @OneToOne // Quan hệ 1-1 với đối tượng ở dưới (Person)
+    @JoinColumn(name = "person_id") // thông qua khóa ngoại person_id
     private Person person;
 }
