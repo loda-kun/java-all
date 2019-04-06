@@ -1,4 +1,4 @@
-package me.loda.jpa.onetoone;
+package me.loda.jpa.manytomany;
 /*******************************************************
  * For Vietnamese readers:
  *    Các bạn thân mến, mình rất vui nếu project này giúp 
@@ -8,14 +8,7 @@ package me.loda.jpa.onetoone;
  *    Xin cảm ơn!
  *******************************************************/
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Copyright 2019 {@author Loda} (https://loda.me).
@@ -24,14 +17,5 @@ import lombok.Data;
  * @since 4/5/2019
  * Github: https://github.com/loda-kun
  */
-@Entity
-@Data
-@Builder
-public class Person {
-
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
-    
+public interface PersonRepository extends JpaRepository<Person, Long> {
 }

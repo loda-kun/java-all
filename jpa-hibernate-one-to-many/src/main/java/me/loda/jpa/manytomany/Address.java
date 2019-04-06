@@ -1,4 +1,4 @@
-package me.loda.jpa.onetoone;
+package me.loda.jpa.manytomany;
 /*******************************************************
  * For Vietnamese readers:
  *    Các bạn thân mến, mình rất vui nếu project này giúp 
@@ -8,15 +8,19 @@ package me.loda.jpa.onetoone;
  *    Xin cảm ơn!
  *******************************************************/
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * Copyright 2019 {@author Loda} (https://loda.me).
@@ -27,7 +31,8 @@ import lombok.Data;
  */
 @Entity // Đánh dấu đây là table trong db
 @Data // lombok giúp generate các hàm constructor, get, set v.v.
-@Builder // lombok giúp tạo class builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Address {
 
     @Id //Đánh dấu là primary key
@@ -37,7 +42,9 @@ public class Address {
     private String city;
     private String province;
 
-    @OneToOne // Quan hệ 1-1 với đối tượng ở dưới (Person)
-    @JoinColumn(name = "person_id") // thông qua khóa ngoại person_id
-    private Person person;
+    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL) // Quan hệ 1-n với đối tượng ở dưới (Person) (1 địa điểm có nhiều người ở)
+    // MapopedBy trỏ tới tên biến Address ở trong Person.
+    @EqualsAndHashCode.Exclude // không sử dụng trường này trong equals và hashcode
+    @ToString.Exclude // Khoonhg sử dụng trong toString()
+    private Collection<Person> persons;
 }

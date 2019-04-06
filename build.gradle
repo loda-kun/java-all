@@ -65,9 +65,9 @@ project(":java-reflection-annotations"){
     }
 }
 
-project(":jpa-hibernate-one-to-one"){
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-}
+project(":jpa-hibernate-one-to-one"){}
+project(":jpa-hibernate-one-to-many"){}
+project(":jpa-hibernate-many-to-many"){}
 
 gradle.buildFinished {
     project.buildDir.deleteDir()

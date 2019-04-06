@@ -1,4 +1,4 @@
-package me.loda.jpa.onetoone;
+package me.loda.jpa.manytomany;
 /*******************************************************
  * For Vietnamese readers:
  *    Các bạn thân mến, mình rất vui nếu project này giúp 
@@ -17,6 +17,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @since 4/5/2019
  * Github: https://github.com/loda-kun
  */
-// Kế thừa JpaRepository để giao tiếp với database
-public interface AddressRepository extends JpaRepository<Address,Long> {
+public interface PersonRepository extends JpaRepository<Person, Long> {
 }

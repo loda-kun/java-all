@@ -1,4 +1,4 @@
-package me.loda.jpa.onetoone;
+package me.loda.jpa.manytomany;
 /*******************************************************
  * For Vietnamese readers:
  *    Các bạn thân mến, mình rất vui nếu project này giúp 
@@ -28,6 +28,7 @@ public class OneToOneExampleApplication implements CommandLineRunner {
         SpringApplication.run(OneToOneExampleApplication.class, args);
     }
 
+    // Sử dụng @RequiredArgsConstructor và final để thay cho @Autowired
     private final PersonRepository personRepository;
     private final AddressRepository addressRepository;
 
