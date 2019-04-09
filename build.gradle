@@ -68,6 +68,7 @@ project(":java-reflection-annotations"){
 project(":jpa-hibernate-one-to-one"){}
 project(":jpa-hibernate-one-to-many"){}
 project(":jpa-hibernate-many-to-many"){}
+project(":java-thread-pool-executor"){}
 
 gradle.buildFinished {
     project.buildDir.deleteDir()
