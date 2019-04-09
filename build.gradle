@@ -69,6 +69,7 @@ project(":jpa-hibernate-one-to-one"){}
 project(":jpa-hibernate-one-to-many"){}
 project(":jpa-hibernate-many-to-many"){}
 project(":java-thread-pool-executor"){}
+project(":java-threadpoolexecutor"){}
 
 gradle.buildFinished {
     project.buildDir.deleteDir()
